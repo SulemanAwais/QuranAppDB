@@ -10,7 +10,7 @@
     android:background="@color/design_default_color_primary">
 
     <ImageView
-        android:layout_width="80dp"
+        android:layout_width="400dp"
         android:layout_height="80dp"
         android:src="@drawable/icon"
         />
