@@ -42,6 +42,18 @@ public class MainActivity extends AppCompatActivity {
                                                                              drawerLayout.closeDrawer(GravityCompat.START);
                                                                              break;
 
+                                                                         case R.id.urdu:
+                                                                             //Toast.makeText(getApplicationContext(),"Return is Clicked",Toast.LENGTH_LONG).show();
+                                                                             Intent intent2 = new Intent(MainActivity.this, UrduVersion.class);
+                                                                             startActivity(intent2);
+                                                                             drawerLayout.closeDrawer(GravityCompat.START);
+                                                                             break;
+
+                                                                         case R.id.english:
+                                                                             Intent intent3 = new Intent(MainActivity.this, EnglishVersion.class);
+                                                                             startActivity(intent3);
+                                                                             drawerLayout.closeDrawer(GravityCompat.START);
+                                                                             break;
 
                                                                      }
 
