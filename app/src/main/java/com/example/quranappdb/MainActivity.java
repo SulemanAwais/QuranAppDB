@@ -10,6 +10,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 //import android.widget.Toolbar;
@@ -17,17 +20,35 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     DrawerLayout drawerLayout;
+    Button arabicBtn;
+    @Override
+    public void onBackPressed(){
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+            Toast.makeText(getApplicationContext(),"Start",Toast.LENGTH_LONG).show();
 
-
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"End",Toast.LENGTH_LONG).show();
+        }
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        drawerLayout=findViewById(R.id.drawer1);
         navigationView=findViewById(R.id.nav_view);
-
-
+        arabicBtn=findViewById(R.id.button);
+        arabicBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ArabicVersion.class);
+                startActivity(intent);
+            }
+        });
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
                                                                  @Override
@@ -50,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                                                                              break;
 
                                                                          case R.id.english:
-                                                                             Intent intent3 = new Intent(MainActivity.this, EnglishVersion.class);
+                                                                             Intent intent3 = new Intent(MainActivity.this, _EnglishVersion.class);
                                                                              startActivity(intent3);
                                                                              drawerLayout.closeDrawer(GravityCompat.START);
                                                                              break;
